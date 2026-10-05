@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notes Shala | Study Smarter</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --primary:#6366f1;
+    --secondary:#8b5cf6;
+    --orange:#f97316;
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#667085;
+    --border:#e5e7eb;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
+}
+
+/* DARK MODE */
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --border:#334155;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:var(--card);
+
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.theme-btn{
+    border:none;
+    background:var(--bg);
+    padding:10px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* HERO */
+
+.hero{
+
+    min-height:500px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:70px 8%;
+
+    background:
+    radial-gradient(circle at 80% 20%,#ddd6fe,transparent 30%),
+    linear-gradient(135deg,#eef2ff,#fff7ed);
+}
+
+.dark .hero{
+    background:
+    radial-gradient(circle at 80% 20%,#312e81,transparent 30%),
+    #0f172a;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 15px;
+
+    background:#e0e7ff;
+    color:#4338ca;
+
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:bold;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    color:var(--muted);
+
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+    display:inline-block;
+}
+
+.primary{
+    background:var(--primary);
+    color:white;
+}
+
+.secondary{
+    background:white;
+    color:var(--text);
+
+    border:1px solid var(--border);
+}
+
+.hero-books{
+    font-size:150px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+/* SEARCH */
+
+.search-section{
+    padding:30px 8%;
+    background:var(--card);
+}
+
+.search-wrapper{
+    max-width:800px;
+    margin:auto;
+    position:relative;
+}
+
+.search-wrapper input{
+
+    width:100%;
+
+    padding:18px 50px 18px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:35px;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    outline:none;
+
+    font-size:16px;
+}
+
+.search-icon{
+    position:absolute;
+    right:20px;
+    top:16px;
+    font-size:20px;
+}
+
+/* STATS */
+
+.stats{
+
+    padding:35px 8%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.stat{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+}
+
+.stat h2{
+    font-size:30px;
+    color:var(--primary);
+}
+
+.stat p{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+/* SECTION */
+
+.section{
+    padding:65px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:40px;
+}
+
+/* SUBJECTS */
+
+.subjects{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.subject{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    padding:35px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.subject:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+
+}
+
+.subject-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.subject h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.subject p{
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.subject-button{
+
+    margin-top:20px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:10px 17px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+/* NOTES */
+
+.filter-buttons{
+
+    display:flex;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:35px;
+}
+
+.filter{
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+
+    background:var(--primary);
+    color:white;
+
+}
+
+.notes-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:22px;
+}
+
+.note{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:25px;
+
+    transition:0.3s;
+}
+
+.note:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.1);
+
+}
+
+.note-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.note-icon{
+    font-size:35px;
+}
+
+.tag{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    background:#eef2ff;
+
+    color:#4338ca;
+
+    font-weight:bold;
+}
+
+.note h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.note p{
+    color:var(--muted);
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.note-buttons{
+
+    display:flex;
+    gap:10px;
+}
+
+.view{
+
+    flex:1;
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-size:14px;
+
+}
+
+.download{
+
+    flex:1;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    padding:11px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-size:14px;
+
+}
+
+/* CTA */
+
+.cta{
+
+    margin:30px 8% 70px;
+
+    padding:55px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+}
+
+.cta h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.cta p{
+    opacity:.9;
+    margin-bottom:25px;
+}
+
+.cta a{
+
+    display:inline-block;
+
+    padding:13px 22px;
+
+    background:white;
+
+    color:#4f46e5;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#0b1120;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    padding:35px;
+
+}
+
+footer strong{
+    color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        text-align:center;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-books{
+        display:none;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .subjects,
+    .notes-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Notes <span>Shala</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#subjects">Subjects</a>
+
+        <a href="#notes">Notes</a>
+
+        <a href="#about">About</a>
+
+        <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="themeButton">
+            🌙
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            🎓 Student Learning Platform
+        </span>
+
+        <h1>
+            Learn Better.
+            <span>Score Better.</span>
+        </h1>
+
+        <p>
+
+            Welcome to Notes Shala — a simple place
+            for students to find high-quality
+            Physics, Chemistry and Mathematics
+            notes in one place.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#notes"
+                class="btn primary">
+
+                Explore Notes →
+
+            </a>
+
+            <a
+                href="#subjects"
+                class="btn secondary">
+
+                Browse Subjects
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-books">
+
+        📚
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+    <div class="search-wrapper">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search notes, chapters, topics..."
+            onkeyup="searchNotes()">
+
+        <span class="search-icon">
+            🔎
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <h2>3</h2>
+
+        <p>Subjects</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2 id="noteCount">
+            6+
+        </h2>
+
+        <p>Study Notes</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>100%</h2>
+
+        <p>Free Learning</p>
+
+    </div>
+
+</section>
+
+
+<!-- SUBJECTS -->
+
+<section class="section" id="subjects">
+
+    <h2 class="section-title">
+        Explore Subjects
+    </h2>
+
+    <p class="section-subtitle">
+        Choose a subject and start learning.
+    </p>
+
+
+    <div class="subjects">
+
+
+        <div
+            class="subject"
+            onclick="filterNotes('Physics')">
+
+            <div class="subject-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Physics
+            </h3>
+
+            <p>
+                Concepts, formulas,
+                derivations and numerical
+                problems.
+            </p>
+
+            <button class="subject-button">
+                Explore Physics →
+            </button>
+
+        </div>
+
+
+        <div
+            class="subject"
+            onclick="filterNotes('Chemistry')">
+
+            <div class="subject-icon">
+                🧪
+            </div>
+
+            <h3>
+                Chemistry
+            </h3>
+
+            <p>
+                Organic, inorganic and
+                physical chemistry
+                notes.
+            </p>
+
+            <button class="subject-button">
+                Explore Chemistry →
+            </button>
+
+        </div>
+
+
+        <div
+            class="subject"
+            onclick="filterNotes('Mathematics')">
+
+            <div class="subject-icon">
+                📐
+            </div>
+
+            <h3>
+                Mathematics
+            </h3>
+
+            <p>
+                Formulas, concepts and
+                step-by-step solutions.
+            </p>
+
+            <button class="subject-button">
+                Explore Mathematics →
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- NOTES -->
+
+<section class="section" id="notes">
+
+    <h2 class="section-title">
+        Study Notes
+    </h2>
+
+    <p class="section-subtitle">
+        Select a subject or search for a topic.
+    </p>
+
+
+    <div class="filter-buttons">
+
+        <button
+            class="filter active"
+            onclick="filterNotes('All',this)">
+            All
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterNotes('Physics',this)">
+            ⚡ Physics
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterNotes('Chemistry',this)">
+            🧪 Chemistry
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterNotes('Mathematics',this)">
+            📐 Mathematics
+        </button>
+
+    </div>
+
+
+    <div
+        class="notes-grid"
+        id="notesGrid">
+
+
+        <!-- PHYSICS -->
+
+        <div
+            class="note"
+            data-subject="Physics">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    ⚡
+                </span>
+
+                <span class="tag">
+                    Physics
+                </span>
+
+            </div>
+
+            <h3>
+                Electrostatics
+            </h3>
+
+            <p>
+                Electric charge, field,
+                potential and important
+                formulas.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/physics/electrostatics.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/physics/electrostatics.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="note"
+            data-subject="Physics">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    ⚡
+                </span>
+
+                <span class="tag">
+                    Physics
+                </span>
+
+            </div>
+
+            <h3>
+                Current Electricity
+            </h3>
+
+            <p>
+                Ohm's law, resistance,
+                Kirchhoff's laws and
+                circuits.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/physics/current-electricity.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/physics/current-electricity.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHEMISTRY -->
+
+        <div
+            class="note"
+            data-subject="Chemistry">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    🧪
+                </span>
+
+                <span class="tag">
+                    Chemistry
+                </span>
+
+            </div>
+
+            <h3>
+                Chemical Bonding
+            </h3>
+
+            <p>
+                Ionic bonding, covalent
+                bonding, VSEPR and
+                hybridization.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/chemistry/chemical-bonding.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/chemistry/chemical-bonding.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="note"
+            data-subject="Chemistry">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    🧪
+                </span>
+
+                <span class="tag">
+                    Chemistry
+                </span>
+
+            </div>
+
+            <h3>
+                Thermodynamics
+            </h3>
+
+            <p>
+                System, surroundings,
+                enthalpy, entropy and
+                Gibbs energy.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/chemistry/thermodynamics.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/chemistry/thermodynamics.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATHEMATICS -->
+
+        <div
+            class="note"
+            data-subject="Mathematics">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    📐
+                </span>
+
+                <span class="tag">
+                    Mathematics
+                </span>
+
+            </div>
+
+            <h3>
+                Matrices
+            </h3>
+
+            <p>
+                Matrix operations,
+                determinants, rank and
+                inverse.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/mathematics/matrices.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/mathematics/matrices.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="note"
+            data-subject="Mathematics">
+
+            <div class="note-top">
+
+                <span class="note-icon">
+                    📐
+                </span>
+
+                <span class="tag">
+                    Mathematics
+                </span>
+
+            </div>
+
+            <h3>
+                Calculus
+            </h3>
+
+            <p>
+                Differentiation,
+                integration and important
+                formulas.
+            </p>
+
+            <div class="note-buttons">
+
+                <a
+                    href="notes/mathematics/calculus.pdf"
+                    target="_blank"
+                    class="view">
+
+                    👁 View
+
+                </a>
+
+                <a
+                    href="notes/mathematics/calculus.pdf"
+                    download
+                    class="download">
+
+                    ⬇ Download
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="about">
+
+    <h2>
+        Your Notes. Your Future.
+    </h2>
+
+    <p>
+        Keep learning, keep improving,
+        and keep moving forward.
+    </p>
+
+    <a href="#notes">
+        Start Studying →
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026
+        <strong>Notes Shala</strong>
+        • Made for students 📚
+    </p>
+
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+function searchNotes(){
+
+    let search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let notes =
+        document
+        .querySelectorAll(".note");
+
+    notes.forEach(function(note){
+
+        let text =
+            note.innerText
+            .toLowerCase();
+
+        if(text.includes(search)){
+            note.style.display="block";
+        }
+        else{
+            note.style.display="none";
+        }
+
+    });
+
+}
+
+
+/* FILTER */
+
+function filterNotes(subject,button){
+
+    let notes =
+        document
+        .querySelectorAll(".note");
+
+
+    notes.forEach(function(note){
+
+        if(
+            subject === "All" ||
+            note.dataset.subject === subject
+        ){
+
+            note.style.display="block";
+
+        }
+        else{
+
+            note.style.display="none";
+
+        }
+
+    });
+
+
+    /* Active button */
+
+    if(button){
+
+        document
+        .querySelectorAll(".filter")
+        .forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+    }
+
+
+    document
+    .getElementById("notes")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* DARK MODE */
+
+function toggleTheme(){
+
+    document
+    .body
+    .classList
+    .toggle("dark");
+
+
+    let button =
+        document
+        .getElementById("themeButton");
+
+
+    if(
+        document
+        .body
+        .classList
+        .contains("dark")
+    ){
+
+        button.innerHTML="☀️";
+
+        localStorage
+        .setItem("theme","dark");
+
+    }
+    else{
+
+        button.innerHTML="🌙";
+
+        localStorage
+        .setItem("theme","light");
+
+    }
+
+}
+
+
+/* REMEMBER THEME */
+
+if(
+    localStorage.getItem("theme")
+    === "dark"
+){
+
+    document
+    .body
+    .classList
+    .add("dark");
+
+    document
+    .getElementById("themeButton")
+    .innerHTML="☀️";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
